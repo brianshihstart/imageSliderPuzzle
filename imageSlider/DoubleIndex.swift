@@ -12,7 +12,7 @@ import Foundation
 class DoubleIndex {
     let rowIndex: Int!
     let columnIndex: Int!
-    `
+    
     
     init(index1 : Int, index2 : Int) {
         self.rowIndex = index1
