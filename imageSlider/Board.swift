@@ -10,4 +10,6 @@ import UIKit
 
 class Board: UIView {
     
+    var hello = 0
+    
 }
