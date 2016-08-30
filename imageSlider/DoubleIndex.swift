@@ -21,7 +21,7 @@ class DoubleIndex {
     
     
     func concatenateToInt() -> Int {
-        
+        print("test")
         return ((self.rowIndex * 10) + self.columnIndex)
     }
     
