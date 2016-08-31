@@ -14,6 +14,8 @@
 		714D70D61D75DB3500FB69E9 /* DoubleIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70D51D75DB3500FB69E9 /* DoubleIndex.swift */; };
 		714D70D91D75DC7F00FB69E9 /* puzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70D81D75DC7F00FB69E9 /* puzzleViewController.swift */; };
 		714D70DB1D75DD9F00FB69E9 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70DA1D75DD9F00FB69E9 /* Board.swift */; };
+		714D70E11D76879B00FB69E9 /* tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70E01D76879B00FB69E9 /* tile.swift */; };
+		714D70E31D76B2CA00FB69E9 /* matrixPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70E21D76B2CA00FB69E9 /* matrixPosition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		714D70D51D75DB3500FB69E9 /* DoubleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleIndex.swift; sourceTree = "<group>"; };
 		714D70D81D75DC7F00FB69E9 /* puzzleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = puzzleViewController.swift; path = ../puzzleViewController.swift; sourceTree = "<group>"; };
 		714D70DA1D75DD9F00FB69E9 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		714D70E01D76879B00FB69E9 /* tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tile.swift; sourceTree = "<group>"; };
+		714D70E21D76B2CA00FB69E9 /* matrixPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrixPosition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				714D70D51D75DB3500FB69E9 /* DoubleIndex.swift */,
+				714D70E21D76B2CA00FB69E9 /* matrixPosition.swift */,
+				714D70E01D76879B00FB69E9 /* tile.swift */,
 			);
 			name = others;
 			sourceTree = "<group>";
@@ -152,7 +158,9 @@
 				714D70C21D75C4EA00FB69E9 /* AppDelegate.swift in Sources */,
 				714D70DB1D75DD9F00FB69E9 /* Board.swift in Sources */,
 				714D70D91D75DC7F00FB69E9 /* puzzleViewController.swift in Sources */,
+				714D70E11D76879B00FB69E9 /* tile.swift in Sources */,
 				714D70D61D75DB3500FB69E9 /* DoubleIndex.swift in Sources */,
+				714D70E31D76B2CA00FB69E9 /* matrixPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
