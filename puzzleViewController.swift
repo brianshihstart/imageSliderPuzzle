@@ -9,5 +9,12 @@
 import UIKit
 
 class puzzleViewController: UIViewController {
-
+    
+    @IBOutlet weak var board: Board!
+    
+    override func viewDidLoad() {
+        self.board.setUpBasics()
+        
+        
+    }
 }
