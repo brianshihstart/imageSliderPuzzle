@@ -9,10 +9,12 @@
 import UIKit
 
 class puzzleViewController: UIViewController {
+    var imageToPassOn: UIImage!
     
     @IBOutlet weak var board: Board!
     
     override func viewDidLoad() {
+        board.chosenImage = self.imageToPassOn
         self.board.setUpBasics()
         
         

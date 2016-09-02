@@ -11,7 +11,7 @@ import UIKit
 
 class Board: UIView {
     
-    var chosenImage = UIImage()
+    var chosenImage:UIImage!
     var tilesPerRow = 3
     var tileArray = [[Tile]]()
     
@@ -32,15 +32,14 @@ class Board: UIView {
         
         self.addPanGesture()
         
-        self.chosenImage = UIImage(named: "birdPicture.png")!
+//        self.chosenImage = UIImage(named: "birdPicture.png")!
         
         self.createBoard()
         self.layoutTiles()
         print(tileArray[1].count)
         
-        delay(3) {
         self.shuffleTiles()
-        }
+        
     }
     
     func createBoard() {
@@ -56,6 +55,10 @@ class Board: UIView {
                 var newTile = Tile(matrixPos: positionIn2D)
                 newTile.imageView.userInteractionEnabled = true
                 newTile.imageView.tag = positionIn2D.createUniqueInt()
+                
+                var totalWidth = self.frame.width
+                var tileFrame = CGRectMake(totalWidth / 2, totalWidth / 2, 0, 0)
+                newTile.imageView.frame = tileFrame
                 
                 // tile's frame:
                 var positionYInImage = CGFloat(yIndex) * widthPerTileImage
@@ -86,12 +89,14 @@ class Board: UIView {
 
                 let puzzleFrame = CGRect(x: XwithinTileArea, y: YwithinTileArea, width: tileWidth, height: tileHeight)
                 
-                UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
+                
+                UIView.animateWithDuration(10, animations: <#T##() -> Void#>)
+                UIView.animateWithDuration(10.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
                     
                     self.tileArray[i][k].imageView.frame = puzzleFrame
-                    
+                    print(self.tileArray[i][k].imageView.frame)
+
                 }), completion: nil)
-                
                 
             }
             

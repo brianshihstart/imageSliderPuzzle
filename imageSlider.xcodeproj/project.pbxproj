@@ -17,6 +17,7 @@
 		714D70E11D76879B00FB69E9 /* tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70E01D76879B00FB69E9 /* tile.swift */; };
 		714D70E31D76B2CA00FB69E9 /* matrixPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70E21D76B2CA00FB69E9 /* matrixPosition.swift */; };
 		714D70E51D76BEBB00FB69E9 /* birdPicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 714D70E41D76BEBB00FB69E9 /* birdPicture.png */; };
+		71D1E0821D787D8100D24CD8 /* introViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D1E0811D787D8100D24CD8 /* introViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		714D70E01D76879B00FB69E9 /* tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tile.swift; sourceTree = "<group>"; };
 		714D70E21D76B2CA00FB69E9 /* matrixPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrixPosition.swift; sourceTree = "<group>"; };
 		714D70E41D76BEBB00FB69E9 /* birdPicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdPicture.png; sourceTree = "<group>"; };
+		71D1E0811D787D8100D24CD8 /* introViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = introViewController.swift; path = ../introViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				714D70E41D76BEBB00FB69E9 /* birdPicture.png */,
 				714D70C11D75C4EA00FB69E9 /* AppDelegate.swift */,
 				714D70D81D75DC7F00FB69E9 /* puzzleViewController.swift */,
+				71D1E0811D787D8100D24CD8 /* introViewController.swift */,
 				714D70DA1D75DD9F00FB69E9 /* Board.swift */,
 				714D70D71D75DB4200FB69E9 /* others */,
 				714D70C51D75C4EA00FB69E9 /* Main.storyboard */,
@@ -119,6 +122,7 @@
 				TargetAttributes = {
 					714D70BD1D75C4EA00FB69E9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = L895KBM86Z;
 					};
 				};
 			};
@@ -161,6 +165,7 @@
 			files = (
 				714D70C21D75C4EA00FB69E9 /* AppDelegate.swift in Sources */,
 				714D70DB1D75DD9F00FB69E9 /* Board.swift in Sources */,
+				71D1E0821D787D8100D24CD8 /* introViewController.swift in Sources */,
 				714D70D91D75DC7F00FB69E9 /* puzzleViewController.swift in Sources */,
 				714D70E11D76879B00FB69E9 /* tile.swift in Sources */,
 				714D70D61D75DB3500FB69E9 /* DoubleIndex.swift in Sources */,
@@ -277,10 +282,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = imageSlider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icerberg.imageSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -288,10 +296,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = imageSlider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icerberg.imageSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
