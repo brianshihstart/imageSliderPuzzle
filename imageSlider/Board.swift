@@ -32,7 +32,7 @@ class Board: UIView {
         
         self.addPanGesture()
         
-//        self.chosenImage = UIImage(named: "birdPicture.png")!
+        self.chosenImage = UIImage(named: "birdPicture.png")!
         
         self.createBoard()
         self.layoutTiles()
@@ -90,21 +90,15 @@ class Board: UIView {
                 let puzzleFrame = CGRect(x: XwithinTileArea, y: YwithinTileArea, width: tileWidth, height: tileHeight)
                 
                 
-                UIView.animateWithDuration(10, animations: <#T##() -> Void#>)
+                UIView.animateWithDuration(10) {}
                 UIView.animateWithDuration(10.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
                     
                     self.tileArray[i][k].imageView.frame = puzzleFrame
                     print(self.tileArray[i][k].imageView.frame)
 
                 }), completion: nil)
-                
             }
-            
-            
-            
         }
-        
-        
     }
     
     var count = 0
@@ -180,6 +174,7 @@ class Board: UIView {
     func swapMatrixPosition(tile1: Tile, tile2: Tile) {
         var tempTile1Matrix = tile1.getMatrixIndex()
         tile1.positionWithinArray = tile2.positionWithinArray
+        tile1.imageView.hidden = true
         tile2.positionWithinArray = tempTile1Matrix
     }
     
@@ -244,24 +239,24 @@ class Board: UIView {
     
     func shuffleTiles() {
         
-        for _ in 0..<19 {
-            // Use arc4random_uniform(n) for a random integer between 0 and n-1
-            let firstTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            let firstTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            let secondTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            let secondTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            
-            var tile1 = tileArray[firstTileIndex1][firstTileIndex2]
-            var tile2 = tileArray[secondTileIndex1][secondTileIndex2]
-            
-            tile1.originalFrame = tile1.imageView.frame
-            tile2.originalFrame = tile2.imageView.frame
-
-            swapTiles(tile1, tile2: tile2, duration: 0.3, completionClosure:{ () -> () in
-            })
-            
-
-        }
+//        for _ in 0..<19 {
+//            // Use arc4random_uniform(n) for a random integer between 0 and n-1
+//            let firstTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            let firstTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            let secondTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            let secondTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            
+//            var tile1 = tileArray[firstTileIndex1][firstTileIndex2]
+//            var tile2 = tileArray[secondTileIndex1][secondTileIndex2]
+//            
+//            tile1.originalFrame = tile1.imageView.frame
+//            tile2.originalFrame = tile2.imageView.frame
+//
+//            swapTiles(tile1, tile2: tile2, duration: 0.3, completionClosure:{ () -> () in
+//            })
+//            
+//
+//        }
         
     }
     
@@ -275,16 +270,5 @@ class Board: UIView {
     // swap tiles
     
 }
-
-func delay(delay:Double, closure:()->()){
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-        ), dispatch_get_main_queue(), closure)
-}
-
-
-
 
 

@@ -13,7 +13,7 @@ import UIKit
 class BoardOneSquare: UIView {
     
     var chosenImage:UIImage!
-    var tilesPerRow = 3
+    var tilesPerRow = 5
     var tileArray = [[Tile]]()
     
     var firstTileSelected: Tile!
@@ -38,7 +38,7 @@ class BoardOneSquare: UIView {
         
         self.addPanGesture()
         
-        //        self.chosenImage = UIImage(named: "birdPicture.png")!
+                self.chosenImage = UIImage(named: "birdPicture.png")!
         
         self.createBoard()
         self.layoutTiles()
@@ -96,24 +96,25 @@ class BoardOneSquare: UIView {
                 let puzzleFrame = CGRect(x: XwithinTileArea, y: YwithinTileArea, width: tileWidth, height: tileHeight)
                 
                 
-                UIView.animateWithDuration(10, animations: <#T##() -> Void#>)
-                UIView.animateWithDuration(10.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
+                UIView.animateWithDuration(1) {}
+                UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
                     
                     self.tileArray[i][k].imageView.frame = puzzleFrame
-                    print(self.tileArray[i][k].imageView.frame)
                     
                 }), completion: nil)
                 
             }
-            
-            
-            
         }
-        
-        
+        let tiley = self.tileArray[tilesPerRow-1][tilesPerRow-1]
+        tiley.imageView.hidden = true
+
     }
     
     var count = 0
+    
+    
+    
+    
        func tileWithPointExists(point: CGPoint, isLookingFirst: Bool) -> Bool {
         for index1 in 0..<self.tilesPerRow {
             for index2 in 0..<self.tilesPerRow {
@@ -147,11 +148,11 @@ class BoardOneSquare: UIView {
         
         self.insertSubview(tile2.imageView, belowSubview: tile1.imageView)
         
-        
-        
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             
             // Swap frames
+            
+            // error
             tile1.imageView.frame = tile2.originalFrame!
             tile2.imageView.frame = tile1.originalFrame!
             tile1.originalFrame = tile1.imageView.frame
@@ -199,25 +200,25 @@ class BoardOneSquare: UIView {
     
     func shuffleTiles() {
         
-        for _ in 0..<19 {
-            // Use arc4random_uniform(n) for a random integer between 0 and n-1
-            let firstTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            let firstTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            let secondTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            let secondTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
-            
-            var tile1 = tileArray[firstTileIndex1][firstTileIndex2]
-            var tile2 = tileArray[secondTileIndex1][secondTileIndex2]
-            
-            tile1.originalFrame = tile1.imageView.frame
-            tile2.originalFrame = tile2.imageView.frame
-            
-            swapTiles(tile1, tile2: tile2, duration: 0.3, completionClosure:{ () -> () in
-            })
-            
-            
-        }
-        
+//        for _ in 0..<19 {
+//            // Use arc4random_uniform(n) for a random integer between 0 and n-1
+//            let firstTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            let firstTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            let secondTileIndex1 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            let secondTileIndex2 = Int(arc4random_uniform(UInt32(tilesPerRow)))
+//            
+//            var tile1 = tileArray[firstTileIndex1][firstTileIndex2]
+//            var tile2 = tileArray[secondTileIndex1][secondTileIndex2]
+//            
+//            tile1.originalFrame = tile1.imageView.frame
+//            tile2.originalFrame = tile2.imageView.frame
+//            
+//            swapTiles(tile1, tile2: tile2, duration: 0.3, completionClosure:{ () -> () in
+//            })
+//            
+//            
+//        }
+//        
     }
     
     // initialise
@@ -238,19 +239,125 @@ class BoardOneSquare: UIView {
 //    let dragTileGesture = UIPanGestureRecognizer(target: self, action: "draggedTile:")
 //    self.addGestureRecognizer(dragTileGesture)
     
+    func getSurroundingTilesV2(centralTile: Tile) -> [Tile] {
+        var arrayToReturn = [Tile]()
+        let row = centralTile.getMatrixIndex().rowIndex
+        let col = centralTile.getMatrixIndex().columnIndex
+        
+        if (isValidPos(row: row + 1, col: col)) {
+            let tile = tileArray[row+1][col]
+            arrayToReturn.append(tile)
+            
+        }
+        if (isValidPos(row: row - 1, col: col)) {
+            let tile = tileArray[row-1][col]
+            arrayToReturn.append(tile)
+        }
+        if (isValidPos(row: row, col: col + 1)) {
+            let tile = tileArray[row][col+1]
+            arrayToReturn.append(tile)
+        }
+        if (isValidPos(row: row, col: col - 1)) {
+            let tile = tileArray[row][col-1]
+            arrayToReturn.append(tile)
+        }
+        return arrayToReturn
+    }
+    
+    
+    func isValidPos(row row: Int, col: Int) -> Bool {
+        if (row == tilesPerRow || col == tilesPerRow || row == -1 || col == -1) {
+            return false
+        }
+        return true
+    }
+    
+    
+    func getSurroundingTiles(centralTile: Tile) -> [Tile] {
+        var returnArray: [Tile] = []
+        let centralRow = centralTile.getMatrixIndex().rowIndex
+        let centralCol = centralTile.getMatrixIndex().columnIndex
+        
+        for i in 0 ..< tilesPerRow {
+            for k in 0 ..< tilesPerRow {
+               
+                
+                if (abs(centralRow - k) <= 1 && abs(centralCol - i) <= 1) {
+                    let tile = tileArray[i][k]
+                    if(tile.imageView.tag != centralTile.imageView.tag) {
+                    returnArray.append(tile)
+                    }
+                }
+                
+            }
+        }
+        
+        return returnArray
+    }
+    
+    func getHiddenTile(arrayOfTiles: [Tile]) -> Tile? {
+        for tile in arrayOfTiles {
+            if tile.imageView.hidden == true {
+                return tile
+            }
+        }
+        return nil
+    }
+    
+    
+    
     func tappedTile(gesture: UITapGestureRecognizer) {
+        print("tapped")
+        let point :CGPoint = gesture.locationInView(self)
+        
+        if let tileTapped = getTileWithPoint(point) {
+            if let hiddenTile = getHiddenTile(getSurroundingTilesV2(tileTapped)) {
+                
+                tileTapped.originalFrame = tileTapped.imageView.frame
+                hiddenTile.originalFrame = hiddenTile.imageView.frame
+                print(hiddenTile.getMatrixIndex().rowIndex)
+                print(hiddenTile.getMatrixIndex().columnIndex)
+                swapTiles(tileTapped, tile2: hiddenTile, duration: 0.2) {}
+                print(hiddenTile.getMatrixIndex().rowIndex)
+                print(hiddenTile.getMatrixIndex().columnIndex)
+                tileTapped.originalFrame = tileTapped.imageView.frame
+                hiddenTile.originalFrame = hiddenTile.imageView.frame
+            }
+        }
+        
+       
+    }
+    
+    func moveTappedTile(point: CGPoint) {
         
     }
     
-    func draggedTile(gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
-        case .Began:
-            
-        case .Changed:
-            
-        case.Ended:
-            
+    
+
+    func getTileWithPoint(point: CGPoint) -> Tile? {
+        var tileToReturn: Tile?
+        for index1 in 0..<self.tilesPerRow {
+            for index2 in 0..<self.tilesPerRow {
+                tileToReturn = self.tileArray[index1][index2]
+                if CGRectContainsPoint((tileToReturn?.imageView.frame)!, point) {
+                    return tileToReturn
+                }
+            }
         }
+        return nil
+    }
+    
+    
+    
+    func draggedTile(gesture: UIPanGestureRecognizer) {
+//        switch gesture.state {
+//        case .Began:
+//            
+//        case .Changed:
+//            
+//        case.Ended:
+//            
+//        }
     }
     
     func moveTile(gesture:UIPanGestureRecognizer) {
@@ -289,7 +396,6 @@ class BoardOneSquare: UIView {
                     })
                 }
                 else {
-                    print("hello")
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.firstTileSelected!.imageView.frame = self.firstTileSelected!.originalFrame!
                     })
@@ -301,7 +407,6 @@ class BoardOneSquare: UIView {
             break
         }
         
-        print("moved\(count)")
         count++
     }
 
