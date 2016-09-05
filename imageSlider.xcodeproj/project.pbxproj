@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		713CC6A21D7A7DD100F27041 /* BoardOneSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713CC6A11D7A7DD100F27041 /* BoardOneSquare.swift */; };
 		714D70C21D75C4EA00FB69E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D70C11D75C4EA00FB69E9 /* AppDelegate.swift */; };
 		714D70C71D75C4EA00FB69E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714D70C51D75C4EA00FB69E9 /* Main.storyboard */; };
 		714D70C91D75C4EA00FB69E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 714D70C81D75C4EA00FB69E9 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		713CC6A11D7A7DD100F27041 /* BoardOneSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardOneSquare.swift; sourceTree = "<group>"; };
 		714D70BE1D75C4EA00FB69E9 /* imageSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		714D70C11D75C4EA00FB69E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		714D70C61D75C4EA00FB69E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				714D70D81D75DC7F00FB69E9 /* puzzleViewController.swift */,
 				71D1E0811D787D8100D24CD8 /* introViewController.swift */,
 				714D70DA1D75DD9F00FB69E9 /* Board.swift */,
+				713CC6A11D7A7DD100F27041 /* BoardOneSquare.swift */,
 				714D70D71D75DB4200FB69E9 /* others */,
 				714D70C51D75C4EA00FB69E9 /* Main.storyboard */,
 				714D70C81D75C4EA00FB69E9 /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 			files = (
 				714D70C21D75C4EA00FB69E9 /* AppDelegate.swift in Sources */,
 				714D70DB1D75DD9F00FB69E9 /* Board.swift in Sources */,
+				713CC6A21D7A7DD100F27041 /* BoardOneSquare.swift in Sources */,
 				71D1E0821D787D8100D24CD8 /* introViewController.swift in Sources */,
 				714D70D91D75DC7F00FB69E9 /* puzzleViewController.swift in Sources */,
 				714D70E11D76879B00FB69E9 /* tile.swift in Sources */,
