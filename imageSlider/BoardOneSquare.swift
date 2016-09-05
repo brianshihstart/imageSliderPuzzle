@@ -272,6 +272,12 @@ class BoardOneSquare: UIView {
         return true
     }
     
+    func getSurroundingTilesRelative(centralTile: Tile) -> [Tile] {
+        var arrayToReturn
+        
+        
+        
+    }
     
     func getSurroundingTiles(centralTile: Tile) -> [Tile] {
         var returnArray: [Tile] = []
@@ -315,14 +321,14 @@ class BoardOneSquare: UIView {
                 
                 tileTapped.originalFrame = tileTapped.imageView.frame
                 hiddenTile.originalFrame = hiddenTile.imageView.frame
-                print(hiddenTile.getMatrixIndex().rowIndex)
-                print(hiddenTile.getMatrixIndex().columnIndex)
                 swapTiles(tileTapped, tile2: hiddenTile, duration: 0.2) {}
-                print(hiddenTile.getMatrixIndex().rowIndex)
-                print(hiddenTile.getMatrixIndex().columnIndex)
                 tileTapped.originalFrame = tileTapped.imageView.frame
                 hiddenTile.originalFrame = hiddenTile.imageView.frame
+            } else {
+                print("cannot find hidden tile")
             }
+        } else {
+            print("point tapped not a tile")
         }
         
        
